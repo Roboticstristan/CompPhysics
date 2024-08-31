@@ -26,7 +26,7 @@ while run:
         if i.type == pygame.KEYDOWN:
             if i.key == pygame.K_SPACE :
                 while sun.centerx != screenW - sun.width/2:
-                    rate = 2
+                    rate = 1
                     canvas.fill((100,150,255))
                     posx = sun.centerx + rate
                     posy = sun.centery
