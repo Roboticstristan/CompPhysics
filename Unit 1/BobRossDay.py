@@ -34,7 +34,6 @@ while run:
                     x = pygame.draw.rect(canvas,(20,200,20),(0,0.8 * screenH,screenW,0.2 * screenH))
                     sun = pygame.draw.circle(canvas, (255,225,0), (posx, posy), 50)
                     pygame.display.flip()
-                    
-            
+                     
 pygame.quit()
 exit()
