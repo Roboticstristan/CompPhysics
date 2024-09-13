@@ -2,6 +2,11 @@
 
 #this is terrbile coding oranization and usage
 
+
+import pygame as pg
+import sys
+import os
+
 t =0 
 dt = 0.1
 pos = 0
@@ -10,10 +15,6 @@ force = 800
 mass = 1000
 c = 1
 acc = force/mass * c
-
-import pygame as pg
-import sys
-import os
 
 pg.init()
 
@@ -35,6 +36,10 @@ while run: #main loop "game loop"
         if event.type==pg.KEYDOWN:
             if event.key==pg.K_SPACE:
                 c *= -1
+    if pos>= w:
+        pos = 0
+        
+        
     clock.tick(60)
     screen.fill((200,226,250))
     pg.draw.rect(screen,(180,225,180), (0, h-100, w,100))
