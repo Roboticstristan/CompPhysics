@@ -10,11 +10,13 @@ ball = ball.Ball(mass,0.1,10,0, -1*g*mass, 0.5)
 
 def move(a):
     global dt
+    global t
     a.acc =a.force/a.mass
     a.vel+=a.acc*dt
     a.pos+=a.vel*dt
     if a.pos < 0:
        print(a.vel)
+       print(t)
        a.vel = 0
        a.dt = 0
        
