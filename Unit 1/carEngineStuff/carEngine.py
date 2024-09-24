@@ -1,3 +1,4 @@
+
 #where all the math gets done
 import car
 import math
@@ -21,10 +22,11 @@ def move(a):
     a.pos+=a.vel*dt
     a.vel+=a.acc*dt
     t += dt
+ 
     #happens once parachute is deployed
-    if((a.vel*60*60*100)/(2.54*12*5280) >= 124):
+    if(a.f <= drag+0.0000001):
         run = False 
-        print(t)
+        print((a.vel*60*60*100)/(2.54*12*5280))
         #changes the are and drag coefficent
         # a.A = 3**2 * math.pi
         # a.C = 1.6
