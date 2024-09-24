@@ -13,7 +13,9 @@ def move(a):
     global run
     global t
 
-    #improved stuff from website
+    #improved force calculation
+    a.f = 15400 - 128* a.vel
+    #drag calculation
     drag = 1/2 * a.C * a.A * p * a.vel**2
     #calculated net forces
     force=(a.f)-(drag)
@@ -22,19 +24,24 @@ def move(a):
     a.pos+=a.vel*dt
     a.vel+=a.acc*dt
     t += dt
- 
-    #happens once parachute is deployed
-    if(a.f <= drag+0.0000001):
-        run = False 
-        print((a.vel*60*60*100)/(2.54*12*5280))
-        #changes the are and drag coefficent
-        # a.A = 3**2 * math.pi
-        # a.C = 1.6
-    #used if need to calculate total time
-    # if(a.pos <= 0):
+    
+    
+    #goes off once the condition is met in this case once the mile is hit
+    # if((a.pos*100)/(2.54*12*5280) >= 1):
     #     run = False 
     #     print(t)
-    #     print(a.vel)
+    
+    #used to calculate max speed
+    # if(a.f <= drag+0.0000001):
+    #     run = False 
+    #     print((a.vel*60*60*100)/(2.54*12*5280))
+    
+    #used to find when a speed has been met (converts the velocity to mph)  
+    # if((a.vel*60*60*100)/(2.54*12*5280) >= 124):
+    #     run = False 
+    #     print(t)
+ 
+ 
 
 while run:
      move(faller)
