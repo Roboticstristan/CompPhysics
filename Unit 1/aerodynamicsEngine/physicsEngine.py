@@ -26,19 +26,21 @@ def move(a):
     a.pos+=a.vel*dt
     a.vel+=a.acc*dt
     t += dt
-    #happens once parachute is deployed
+    # #happens once parachute is deployed
     if(a.pos <= 1000):
-        run = False 
-        print(t)
-        print(a.vel)
+        a.A = 3**2 * math.pi
+        a.C = 1.6
+        # run = False 
+        # print(t)
+        # print(a.vel)
         #changes the are and drag coefficent
         # a.A = 3**2 * math.pi
         # a.C = 1.6
     #used if need to calculate total time
-    # if(a.pos <= 0):
-    #     run = False 
-    #     print(t)
-    #     print(a.vel)
+    if(a.pos <= 0):
+        run = False 
+        print(t)
+        print(a.vel)
 
 while run:
      move(faller)
