@@ -18,14 +18,26 @@ class Vector:
     
     def __mul__(self,s):
         if not isinstance(s, (float,int)):
-            raise TypeError(f"Cannot multiply vector with {type(v)}, your type is not a scalar")
+            return NotImplemented
         return Vector(self.x * s, self.y * s, self.z * s)
     
+    def __rmul__(self,s):
+        try:
+            return self.__mul__(s)
+        except:
+            raise TypeError(f"Cannot multiply vector with {type(s)}, your type is not a scalar") 
+        
     def __truediv__(self,s):
         if not isinstance(s, (float,int)):
-            raise TypeError(f"Cannot multiply vector with {type(v)}, your type is not a scalar")
+            raise NotImplemented
         return Vector(self.x / s, self.y / s, self.z / s)
     
+    def __rtruediv__(self,s):
+        try:
+            return self.__truediv__(s)
+        except:
+            raise TypeError(f"Cannot divide vector with {type(s)}, your type is not a scalar")
+        
     def findMag(self):
         return(math.sqrt(self.x**2 + self.y**2 + self.z**2))
     
@@ -44,10 +56,14 @@ class Vector:
         newY = (self.z * v.x) - (self.x*v.z)
         newZ = (self.x * v.y) - (self.y * v.x)
         return Vector(newX,newY,newZ)
-    def __str__(self):
-        return str(self.x) + " "+ str(self.y)+ " " + str(self.z)
+    
+    # def __str__(self):
+    #     return str(self.x) + " "+ str(self.y)+ " " + str(self.z)
+    
+    def __repr__(self):
+        return f"({self.x},{self.y},{self.z})"
     
 Vecc = Vector(2,3,5)
 vic = Vector(1,3,7)
 
-print(Vecc.normalize())
+print(2/Vecc)
