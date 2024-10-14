@@ -10,6 +10,7 @@ t = 0
 maxHeight = 0
 
 run = True
+go = False
 #launch parameters
 
 lHeight = float(input())
@@ -18,6 +19,11 @@ lSpeed = float(input())
 
 lAngDeg = float(input())
 
+# lHeight = 12.5
+
+# lSpeed = 12.3
+
+# lAngDeg = 35.0
 
 speed = lSpeed
 angle = lAngDeg
@@ -35,26 +41,28 @@ def drag(a):
 def netForce(a):
     return weight(a)+drag(a)
 
-def move(a):
-    global maxHeight
+def move(a,reps):
     global t
-    force = weight(a)+drag(a)
-    acc = force/a.m
-    a.vel += acc*dt
-    a.pos += a.vel*dt
-    t+=dt
-    if(a.pos.y > maxHeight):
-        maxHeight = a.pos.y
-    checker(a)
+    if go == True:
+     for i in range(reps):
+        t += dt
+        force = weight(a)+drag(a)
+        acc = force/a.m
+        a.vel += acc*dt
+        a.pos += a.vel*dt
+        checker(a)
 
     
 def checker(a):
     global run
-    if a.pos.y < 0:
-        print(t)
-        print(a.pos.x)
-        print(a.vel.mag())
-        print(maxHeight)
+    if(abs(a.vel.y)<0.01):
+        print(f'max height = {round(a.pos.y,2)} m')
+
+    if(a.pos.y<0):
+        print(f'range = {round(a.pos.x,2)}')
+        print(f'Final speed = {round(a.vel.mag(),2)} m/s')
+        print(f'Total time of flight = {round(t,2)} s')
         run = False
+
         
     
