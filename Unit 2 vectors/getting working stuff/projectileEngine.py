@@ -52,19 +52,21 @@ def move(a,reps):
     global t
     if go == True:
      for i in range(reps):
+        if(go == False):
+            break
         t += dt
         force = netForce(a)
         acc = force/a.m
         a.vel += acc*dt
         a.pos += a.vel*dt
         checker(a)
-
     
 def checker(a):
     global run
     global go
     if(abs(a.vel.y)<0.01):
         print(f'max height = {round(a.pos.y,2)} m')
+     
 
     if(a.pos.y<0):
         print(f'range = {round(a.pos.x,2)}')
@@ -72,5 +74,6 @@ def checker(a):
         print(f'Total time of flight = {round(t,2)} s')
         run = False
         go = False
+    
     
     

@@ -18,7 +18,7 @@ def setup(w,h):
 
 def background():
     screen.fill((200, 225, 250))
-    pg.draw.rect(screen, (180, 255, 180), (0, 750, 800,50))
+    pg.draw.rect(screen, (180, 255, 180), (0, 800, 800,100))
 
 def render(a):
     # background()
@@ -37,3 +37,4 @@ def check_interactions():
             if event.key == pg.K_SPACE:
                 phys.go = True        
 
+    
