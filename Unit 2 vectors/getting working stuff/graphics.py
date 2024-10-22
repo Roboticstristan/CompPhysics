@@ -10,7 +10,6 @@ screenSW = 1
 ogPos =[]
 height = 0
 width = 0
-
 def setup(w,h):
     global height
     global width
@@ -34,7 +33,11 @@ def background():
 # and then multiplies them by the ball scale to draw them in a for loop also adds a ground
 def drawCircles(a):
     for (X,Y) in a:
-        pg.draw.circle(screen,(11, 218, 81),(X*ballS, screen.get_height()-50+Y*ballS),5)
+        if(Y == phys.maxHeight):
+            pg.draw.circle(screen,(204, 0, 0),(X*ballS, screen.get_height()-50+Y*ballS),5)
+        else:
+            pg.draw.circle(screen,(11, 218, 81),(X*ballS, screen.get_height()-50+Y*ballS),5)
+        
     pg.draw.rect(screen, (166, 139, 113), (0,screen.get_height()-50,screen.get_width(),50))
 
 def checker():

@@ -19,7 +19,7 @@ angleDeg = 20.0
 
 lHeight = 0
 
-launchSpin = 40
+launchSpin = 100
 
 DragC = 0.5
 
@@ -64,9 +64,10 @@ def move(a,reps):
 def checker(a):
     global run
     global go
-    if(abs(a.vel.y)<0.01):
+    global maxHeight
+    if(abs(a.vel.y)<0.01 and a.pos.y > maxHeight):
         print(f'max height = {round(a.pos.y,2)} m')
-     
+
 
     if(a.pos.y<0):
         print(f'range = {round(a.pos.x,2)}')
