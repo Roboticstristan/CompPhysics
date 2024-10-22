@@ -5,7 +5,7 @@ gx.setup(800,600)
 gx.background()
 
 while pe.run==True:
-    gx.check_interactions()
+    gx.check_interactions() 
     gx.frameRate(60)
     gx.render(pe.baseball)
     pe.move(pe.baseball, 10)

@@ -25,7 +25,7 @@ DragC = 0.5
 
 MagC = 0.004
 
-wind = Vec(-12,0,0)
+wind = Vec(12,0,0)
 
 angularVel = Vec(0,0,launchSpin)
 
