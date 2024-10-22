@@ -33,8 +33,8 @@ def background():
 # and then multiplies them by the ball scale to draw them in a for loop
 def drawCircles(a):
     for (X,Y) in a:
-        pg.draw.circle(screen,(11, 218, 81),(X*ballS, screen.get_height()+Y*ballS),5)
-          
+        pg.draw.circle(screen,(11, 218, 81),(X*ballS, screen.get_height()-50+Y*ballS),5)
+    pg.draw.rect(screen, (166, 139, 113), (0,screen.get_height()-50,screen.get_width(),50))
 
 def checker():
     #autoscaling graphics done by this puppy essentially checks the last thing in the positions list
