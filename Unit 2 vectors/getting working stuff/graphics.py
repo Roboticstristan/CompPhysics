@@ -27,10 +27,11 @@ def setup(w,h):
 
 def background():
     screen.fill((200, 225, 250))
+    pg.draw.rect(screen, (166, 139, 113), (0,screen.get_height()-50,screen.get_width(),50))
     # pg.draw.rect(screen, (180, 255, 180), (0, 800, 800,100))
 
 #draws all the circles based on cordinates ive stored in the list A is meant to be a list filed w tuples
-# and then multiplies them by the ball scale to draw them in a for loop
+# and then multiplies them by the ball scale to draw them in a for loop also adds a ground
 def drawCircles(a):
     for (X,Y) in a:
         pg.draw.circle(screen,(11, 218, 81),(X*ballS, screen.get_height()-50+Y*ballS),5)
