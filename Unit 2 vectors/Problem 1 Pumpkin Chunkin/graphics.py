@@ -33,10 +33,7 @@ def background():
 # and then multiplies them by the ball scale to draw them in a for loop also adds a ground
 def drawCircles(a):
     for (X,Y) in a:
-        if(Y == phys.maxHeight):
-            pg.draw.circle(screen,(204, 0, 0),(X*ballS, screen.get_height()-50+Y*ballS),5)
-        else:
-            pg.draw.circle(screen,(11, 218, 81),(X*ballS, screen.get_height()-50+Y*ballS),5)
+        pg.draw.circle(screen,(255, 117, 24),(X*ballS, screen.get_height()-50+Y*ballS),5)
         
     pg.draw.rect(screen, (166, 139, 113), (0,screen.get_height()-50,screen.get_width(),50))
 

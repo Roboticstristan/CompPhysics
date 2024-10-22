@@ -1,9 +1,9 @@
-from stuff import*
-
+from pumpkin import*
+import math
 
 #enviornmentals
 g = Vec(0,-9.8,0)
-airDen = 1.2    
+airDen = 0.97  
 dt = 0.001
 t = 0
 
@@ -13,23 +13,26 @@ run = True
 go = False
 #launch parameters
 
-speed = 60
+speed = 330
 
-angleDeg = 20.0
+launchAngDeg = 34.0
 
-lHeight = 0
+barrelLen = 30.48 
 
-launchSpin = 100
+lHeight = math.sin((launchAngDeg*math.pi)/180) * barrelLen
+print(lHeight)
 
-DragC = 0.5
+launchSpin = 0
 
-MagC = 0.004
+DragC = 0.3
 
-wind = Vec(12,0,0)
+MagC = 0.004 
+
+wind = Vec(15,1,0)
 
 angularVel = Vec(0,0,launchSpin)
 
-baseball = Projectile(0.5,0.08,Vec(0,lHeight,0),speed,angleDeg,DragC,MagC)
+baseball = Projectile(4.2,0.125,Vec(0,lHeight,0),speed,launchAngDeg,DragC,MagC)
 
 #weight returns the force of the object
 def weight(a):
@@ -42,11 +45,8 @@ def voa(a):
 def drag(a):
     return -0.5 * a.C * a.A * airDen * abs(voa(a)) * voa(a)
 
-def magnus(a):
-    return a.MC * (angularVel.cross(voa(a)))
-
 def netForce(a):
-    return weight(a)+drag(a)+magnus(a)
+    return weight(a)+drag(a)
 
 def move(a,reps):
     global t
