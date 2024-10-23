@@ -55,7 +55,7 @@ def move(a,reps):
         if(go == False):
             break
         t += dt
-        print(netForce(a))
+        # print(netForce(a))
         force = netForce(a)
         acc = force/a.m
         a.vel += acc*dt
