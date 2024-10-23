@@ -19,7 +19,7 @@ angleDeg = 20.0
 
 lHeight = 0
 
-launchSpin = 100
+launchSpin = 0
 
 DragC = 0.5
 
@@ -44,7 +44,7 @@ def drag(a):
 
 def magnus(a):
     return a.MC * (angularVel.cross(voa(a)))
-
+    
 def netForce(a):
     return weight(a)+drag(a)+magnus(a)
 
@@ -55,6 +55,7 @@ def move(a,reps):
         if(go == False):
             break
         t += dt
+        print(netForce(a))
         force = netForce(a)
         acc = force/a.m
         a.vel += acc*dt

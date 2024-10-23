@@ -51,7 +51,7 @@ def checker():
     y = positionTuple[1] * ballS 
     #checks if the ball is to close to the screen
     if(screen.get_width() - x < 5):
-        ballS -= 0.125
+        ballS -= 0.0625
         # screenSW += 0.01
         # screen=pg.display.set_mode((width*screenSW,height*screenSH))
     

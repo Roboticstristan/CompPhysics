@@ -15,11 +15,12 @@ go = False
 
 speed = 330
 
-launchAngDeg = 34.0
+launchAngDeg = 80
 
 barrelLen = 30.48 
 
-lHeight = math.sin((launchAngDeg*math.pi)/180) * barrelLen
+lHeight = math.sin(math.radians(launchAngDeg)) * barrelLen
+
 print(lHeight)
 
 launchSpin = 0
@@ -28,7 +29,7 @@ DragC = 0.3
 
 MagC = 0.004 
 
-wind = Vec(15,1,0)
+wind = Vec(-12,1,0)
 
 angularVel = Vec(0,0,launchSpin)
 
