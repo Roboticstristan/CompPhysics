@@ -14,10 +14,10 @@ go = False
 #launch parameters
 
 
-angleDeg = 4
+angleDeg = 36.5
 
 speed = 40/math.sin(math.radians(angleDeg/3 + 35))
-
+print(speed)
 lHeight = 0
 
 launchSpin = 0
@@ -66,13 +66,13 @@ def checker(a):
     global run
     global go
     global maxHeight
-    if(abs(a.vel.y)<0.01 and a.pos.y > maxHeight):
+    if(abs(a.vel.y)<0.01 and round(a.pos.y,2) >round(maxHeight,2)):
         print(f'max height = {round(a.pos.y,2)} m')
 
 
     if(a.pos.y<0):
         print(f'range = {round(a.pos.x,2)}')
-        print(f'Final speed = {round(a.vel.mag(),2)} m/s')
+        print(f'launch speed = {round(speed,2)} m/s')
         print(f'Total time of flight = {round(t,2)} s')
         run = False
         go = False
