@@ -2,8 +2,8 @@ from golfBall import*
 
 
 #enviornmentals
-g = Vec(0,-9.8,0)
-airDen = 1.2    
+g = Vec(0,-1.62,0)
+airDen = 0   
 dt = 0.001
 t = 0
 
@@ -13,23 +13,24 @@ run = True
 go = False
 #launch parameters
 
-speed = 60
 
-angleDeg = 20.0
+angleDeg = 4
+
+speed = 40/math.sin(math.radians(angleDeg/3 + 35))
 
 lHeight = 0
 
-launchSpin = 40
+launchSpin = 0
 
-DragC = 0.5
+DragC = 0
 
 MagC = 0.004
 
-wind = Vec(12,0,0)
+wind = Vec(0,0,0)
 
 angularVel = Vec(0,0,launchSpin)
 
-baseball = Projectile(0.5,0.08,Vec(0,lHeight,0),speed,angleDeg,DragC,MagC)
+baseball = Projectile(0.045,0.021335,Vec(0,lHeight,0),speed,angleDeg,DragC,MagC)
 
 #weight returns the force of the object
 def weight(a):
